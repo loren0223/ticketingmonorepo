@@ -2,14 +2,15 @@ import { app } from './app';
 import mongoose from 'mongoose';
 
 const startApp = async () => {
+  console.log('Starting up......');
+
   if (!process.env.JWT_SECRET_KEY) {
     throw new Error('JWT_SECRET_KEY must be defined');
   }
-  console.log(`JWT_SECRET_KEY = ${process.env.JWT_SECRET_KEY}`);
-
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
   }
+  console.log(`JWT_SECRET_KEY = ${process.env.JWT_SECRET_KEY}`);
   console.log(`MONGO_URI = ${process.env.MONGO_URI}`);
 
   try {
