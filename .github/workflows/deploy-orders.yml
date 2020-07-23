@@ -1,9 +1,9 @@
-name: deploy-auth
+name: deploy-orders
 
 on:
   push:
     branches: [master]
-    paths: [auth/**]
+    paths: [orders/**]
 
 jobs:
   build:
@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: cd auth && docker build -t agreeloren106001/ticketing-auth .
+        run: cd orders && docker build -t agreeloren106001/ticketing-orders .
       - name: Login in DockerHub
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push the image to DockerHub
-        run: docker push agreeloren106001/ticketing-auth
+        run: docker push agreeloren106001/ticketing-orders
