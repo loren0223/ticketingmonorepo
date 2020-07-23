@@ -6,6 +6,7 @@ deploy:
   kubectl:
     manifests:
       - infra/k8s/*
+      - infra/k8s-dev/*
 build:
   local:
     push: false
@@ -19,7 +20,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: agreeloren106001/ticketing-tickets
       context: tickets
@@ -27,7 +28,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: agreeloren106001/ticketing-orders
       context: orders
@@ -35,7 +36,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: agreeloren106001/ticketing-expiration
       context: expiration
@@ -43,7 +44,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: agreeloren106001/ticketing-payments
       context: payments
@@ -51,7 +52,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: agreeloren106001/ticketing-client
       context: client
@@ -59,5 +60,5 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "**/*.js"
+          - src: '**/*.js'
             dest: .
