@@ -8,8 +8,12 @@ export default ({ req }) => {
     //
     //    The optional configuration tells ingress-nginx to understand where we come from
     return axios.create({
-      baseURL:
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      // For development
+      // baseURL:
+      //   'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+
+      baseURL: 'http://www.agreeinfotech.com',
+
       headers: req.headers,
     });
   } else {
