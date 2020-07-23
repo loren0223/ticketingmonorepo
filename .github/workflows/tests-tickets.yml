@@ -1,11 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: tests-auth
+name: tests-tickets
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  pull_request
+  pull_request:
+    paths:
+      - 'tickets/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,8 +18,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: run auto-tests
-      run: cd tickets && npm install && npm run test:ci
+      - name: run auto-tests
+        run: cd tickets && npm install && npm run test:ci
