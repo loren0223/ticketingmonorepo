@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: agreeinfotech.com
+    - host: www.agreeinfotech.com
       http:
         paths:
           - path: /api/users/?(.*)
