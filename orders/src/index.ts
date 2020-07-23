@@ -7,26 +7,23 @@ import { ExpirationCompletedListener } from './events/listeners/expiration-compl
 import { PaymentCreatedListener } from './events/listeners/payment-created-listener';
 
 const startApp = async () => {
+  console.log('Starting up......');
+
   if (!process.env.JWT_SECRET_KEY) {
     throw new Error('JWT_SECRET_KEY must be defined');
   }
-
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
   }
-
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
   }
-
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must be defined');
   }
-
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL must be defined');
   }
-
   if (!process.env.EXPIRATION_TIME_SECONDS) {
     throw new Error('EXPIRATION_TIME_SECONDS must be defined');
   }
