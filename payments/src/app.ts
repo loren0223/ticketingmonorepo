@@ -14,8 +14,7 @@ app.use(
   cookieSession({
     name: 'myJWT',
     signed: false,
-    //secure: process.env.NODE_ENV !== 'test', // "true" means that only transfer cookie-session when using HTTPS
-    secure: false,
+    secure: process.env.NODE_ENV !== 'test', // "true" means that only transfer cookie-session when using HTTPS
   })
 ); // https://www.npmjs.com/package/cookie-session
 
