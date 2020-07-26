@@ -22,7 +22,7 @@ jobs:
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      - name: Get the kubenetes config file and set context
+      - name: Connect to the specific k8s cluster on DigitalOcean
         run: doctl kubernetes cluster kubeconfig save ticketing
       - name: Re-deploy the service
         run: kubectl rollout restart deployment tickets-depl
