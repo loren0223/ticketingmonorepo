@@ -38,12 +38,15 @@ router.post(
       process.env.JWT_SECRET_KEY!
     );
 
-    // Store it on session object
-    // Syntax Issue: Type '{ jwt: string; }' is missing the following properties from type 'CookieSessionObject': isChanged, isNew, isPopulatedts(2739)
-    // Solution: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27288
+    // Store the userJWT(session data) on the client within a cookie called 'myJWT'
+    // - req.session = 'myJWT' cookie
+    // - 'myJWT' cookie = {"jwt": <userJWT>}
     req.session = {
       jwt: userJwt,
     };
+    // TS Compile Error:
+    // - Syntax Issue: Type '{ jwt: string; }' is missing the following properties from type 'CookieSessionObject': isChanged, isNew, isPopulatedts(2739)
+    // - Solution: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27288
 
     res.status(201).send(user);
   }
