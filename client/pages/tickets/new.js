@@ -3,12 +3,15 @@ import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
 
 export default () => {
+  const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
+
   const { doRequest, errors } = useRequest({
     url: '/api/tickets',
     method: 'post',
     body: {
+      category,
       title,
       price,
     },
@@ -34,6 +37,20 @@ export default () => {
   return (
     <form onSubmit={doSubmit}>
       <h1>Create a Ticket</h1>
+      <div className="form-group">
+        <label>Category</label>
+        <select
+          className="form-control"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option>Movie</option>
+          <option>Concert</option>
+          <option>Match</option>
+          <option>Show</option>
+          <option>Stage</option>
+        </select>
+      </div>
       <div className="form-group">
         <label>Title</label>
         <input
