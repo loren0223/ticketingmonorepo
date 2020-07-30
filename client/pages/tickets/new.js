@@ -35,7 +35,7 @@ export default () => {
     <form onSubmit={doSubmit}>
       <h1>Create a Ticket</h1>
       <div className="form-group">
-        <label>Ticket</label>
+        <label>Title</label>
         <input
           className="form-control"
           value={title}
