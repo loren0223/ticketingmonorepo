@@ -15,6 +15,9 @@ spec:
       containers:
         - name: client
           image: agreeloren106001/ticketing-client
+          env:
+            - name: BASE_URL_ON_SERVER
+              value: http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
 ---
 apiVersion: v1
 kind: Service
