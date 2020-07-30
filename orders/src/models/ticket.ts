@@ -3,15 +3,17 @@ import { Order, OrderStatus } from './order';
 
 interface TicketAttrs {
   id: string;
+  version: number;
+  category: string;
   title: string;
   price: number;
-  version: number;
 }
 
 export interface TicketDoc extends mongoose.Document {
+  version: number;
+  category: string;
   title: string;
   price: number;
-  version: number;
   createdAt: string;
   updatedAt: string;
   isReserved(): Promise<boolean>;
@@ -27,6 +29,10 @@ interface TicketModel extends mongoose.Model<TicketDoc> {
 
 const ticketSchema = new mongoose.Schema(
   {
+    category: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -62,6 +68,7 @@ ticketSchema.statics.build = (input: TicketAttrs) => {
   return new Ticket({
     _id: input.id,
     version: input.version,
+    category: input.category,
     title: input.title,
     price: input.price,
   });

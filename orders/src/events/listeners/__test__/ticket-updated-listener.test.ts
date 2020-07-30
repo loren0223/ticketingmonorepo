@@ -12,6 +12,7 @@ const setup = async () => {
   // Create a ticket and save
   const ticket = Ticket.build({
     id: new mongoose.Types.ObjectId().toHexString(),
+    category: 'movie',
     title: 'movie',
     price: 99,
     version: 0,
@@ -22,6 +23,7 @@ const setup = async () => {
   const data: TicketUpdatedEvent['data'] = {
     id: ticket.id,
     version: 1,
+    category: 'movie',
     title: 'movie',
     price: 88.8,
     userId: new mongoose.Types.ObjectId().toHexString(),

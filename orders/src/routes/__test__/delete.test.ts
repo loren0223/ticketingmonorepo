@@ -10,6 +10,7 @@ it('marks the order as cancelled', async () => {
 
   const ticket = Ticket.build({
     id: new mongoose.Types.ObjectId().toHexString(),
+    category: 'movie',
     title: 'concert',
     price: 10,
     version: 0,

@@ -13,6 +13,7 @@ const setup = async () => {
   // Create a ticket
   const ticket = Ticket.build({
     id: new mongoose.Types.ObjectId().toHexString(),
+    category: 'movie',
     title: 'movie',
     price: 10,
     version: 0,

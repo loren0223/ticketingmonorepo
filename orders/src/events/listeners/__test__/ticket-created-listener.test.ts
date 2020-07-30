@@ -12,6 +12,7 @@ const setup = () => {
   // Create a fake data
   const data: TicketCreatedEvent['data'] = {
     id: new mongoose.Types.ObjectId().toHexString(),
+    category: 'movie',
     version: 0,
     title: 'movie',
     price: 10,

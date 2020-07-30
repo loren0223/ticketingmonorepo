@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "dependencies": {
-    "@agreejwc/common": "^1.0.14",
+    "@agreejwc/common": "^1.0.15",
     "@types/cookie-session": "2.0.39",
     "@types/express": "^4.17.6",
     "@types/jsonwebtoken": "^8.5.0",
