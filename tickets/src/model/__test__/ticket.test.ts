@@ -3,7 +3,8 @@ import { Ticket } from '../ticket';
 it('implements optimistic concurrency control', async () => {
   // Create a ticket
   const ticket = Ticket.build({
-    title: 'movie',
+    category: 'movie',
+    title: 'fly on the air',
     price: 10,
     userId: '12312sdf',
   });
@@ -32,7 +33,8 @@ it('implements optimistic concurrency control', async () => {
 it('increments the version number on multiple saves', async () => {
   // Create a ticket
   const ticket = Ticket.build({
-    title: 'movie',
+    category: 'movie',
+    title: 'fly on the air',
     price: 10,
     userId: '12312sdf',
   });

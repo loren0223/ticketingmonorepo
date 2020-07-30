@@ -27,7 +27,10 @@ it('return a status other than 401 if user is signed in', async () => {
 it('return a 400 if an invalid title is provided', async () => {
   const cookie = global.signin();
 
-  const data = [{ price: 10 }, { title: '', price: 10 }];
+  const data = [
+    { category: 'movie', price: 10 },
+    { category: 'movie', title: '', price: 10 },
+  ];
 
   data.forEach(async (body) => {
     await request(app)
@@ -42,9 +45,9 @@ it('return a 400 if an invalid price is provided', async () => {
   const cookie = global.signin();
 
   const data = [
-    { title: 'title' },
-    { title: 'title', price: -1 },
-    { title: 'title', price: 0 },
+    { category: 'movie', title: 'title' },
+    { category: 'movie', title: 'title', price: -1 },
+    { category: 'movie', title: 'title', price: 0 },
   ];
 
   data.forEach(async (body) => {
@@ -61,6 +64,7 @@ it('create a ticket with valid inputs', async () => {
   expect(tickets.length).toEqual(0);
 
   const data = {
+    category: 'movie',
     title: 'Good fruit',
     price: 10,
   };
@@ -73,6 +77,7 @@ it('create a ticket with valid inputs', async () => {
 
   tickets = await Ticket.find({});
   expect(tickets.length).toEqual(1);
+  expect(tickets[0].category).toEqual(data.category);
   expect(tickets[0].title).toEqual(data.title);
   expect(tickets[0].price).toEqual(data.price);
   // expect(tickets[0].userId).toEqual('1234567890');

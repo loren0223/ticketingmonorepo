@@ -17,6 +17,7 @@ it('return a 404 if the ticket is not found', async () => {
 });
 
 it('return the ticket if it is found', async () => {
+  const category = 'Match';
   const title = 'Sport game';
   const price = 100;
 
@@ -31,6 +32,7 @@ it('return the ticket if it is found', async () => {
     .set('Cookie', global.signin())
     .expect(200);
 
+  expect(ticketResponse.body.category).toEqual(category);
   expect(ticketResponse.body.title).toEqual(title);
   expect(ticketResponse.body.price).toEqual(price);
 });

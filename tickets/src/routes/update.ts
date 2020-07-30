@@ -20,6 +20,7 @@ router.put(
   '/api/tickets/:id',
   requireAuth,
   [
+    body('category').notEmpty().withMessage('Category is required'),
     body('title').notEmpty().withMessage('Title is required'),
     body('price')
       .isFloat({ gt: 0 })
@@ -28,7 +29,7 @@ router.put(
   validateRequest,
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const { title, price } = req.body;
+    const { category, title, price } = req.body;
     let ticket = await Ticket.findById(id);
 
     if (!ticket) {
@@ -49,6 +50,7 @@ router.put(
     await new TicketUpdatedPublisher(natsWrapper.client).publish({
       id: ticket.id,
       version: ticket.version,
+      category: ticket.category,
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,

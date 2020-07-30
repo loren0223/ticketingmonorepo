@@ -3,11 +3,7 @@ import { body } from 'express-validator';
 
 import { Ticket } from '../model/ticket';
 
-import {
-  validateRequest,
-  BadRequestError,
-  requireAuth,
-} from '@agreejwc/common';
+import { validateRequest, requireAuth } from '@agreejwc/common';
 
 import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher';
 import { natsWrapper } from '../nats-wrapper';
@@ -18,6 +14,7 @@ router.post(
   '/api/tickets',
   requireAuth,
   [
+    body('category').notEmpty().withMessage('Category is required'),
     body('title').notEmpty().withMessage('Title is required'),
     body('price')
       .isFloat({ gt: 0 })
@@ -25,7 +22,7 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { title, price } = req.body;
+    const { category, title, price } = req.body;
     const currentUser = req.currentuser!;
     const userId = currentUser.id;
 
@@ -34,12 +31,13 @@ router.post(
     //   throw new BadRequestError('Ticket exists');
     // }
 
-    const ticket = Ticket.build({ title, price, userId });
+    const ticket = Ticket.build({ category, title, price, userId });
     await ticket.save();
 
     await new TicketCreatedPublisher(natsWrapper.client).publish({
       id: ticket.id,
       version: ticket.version,
+      category: ticket.category,
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,

@@ -5,7 +5,11 @@ const createTicket = () => {
   return request(app)
     .post('/api/tickets')
     .set('Cookie', global.signin())
-    .send({ title: 'Sport', price: 100 })
+    .send({
+      category: 'movie',
+      title: 'Sport',
+      price: 100,
+    })
     .expect(201);
 };
 
