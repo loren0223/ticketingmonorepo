@@ -85,6 +85,7 @@ it('create a ticket with valid inputs', async () => {
 
 it('publishes an event', async () => {
   const data = {
+    category: 'Stage',
     title: 'Good fruit',
     price: 10,
   };

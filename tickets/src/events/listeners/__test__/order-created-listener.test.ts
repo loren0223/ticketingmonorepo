@@ -9,6 +9,7 @@ const setup = async () => {
   const listener = new OrderCreatedListener(natsWrapper.client);
 
   const ticket = Ticket.build({
+    category: 'movie',
     title: 'movie',
     price: 10,
     userId: new mongoose.Types.ObjectId().toHexString(),
