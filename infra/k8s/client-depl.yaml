@@ -15,9 +15,6 @@ spec:
       containers:
         - name: client
           image: agreeloren106001/ticketing-client
-          env:
-            - name: BASE_URL_ON_SERVER
-              value: https://ticketing.agreeinfotech.com
 ---
 apiVersion: v1
 kind: Service

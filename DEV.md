@@ -21,14 +21,14 @@ Configuration:
     ```
   - Create jwt-secret object:
     ```
-    $ kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY={YOUR_STRIPE_KEY}
+    $ kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY={YOUR_STRIPE_SECRET_KEY}
     ```
   - Install Nginx Ingress Controller (https://kubernetes.github.io/ingress-nginx/deploy/#minikube)
     Docker for Mac/Windows
     ```
     $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/cloud/deploy.yaml
     ```
-- Setup local hosts file to map localhost to ticketing.dev
+- Setup local hosts file to map "localhost" to "ticketing.dev"
   ```
   127.0.0.1  ticketing.dev
   ```

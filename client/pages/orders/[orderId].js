@@ -5,6 +5,7 @@ import Router from 'next/router';
 
 const ShowOrder = ({ currentuser, order }) => {
   const [timeLeft, setTimeLeft] = useState(0);
+
   const { doRequest, errors } = useRequest({
     url: '/api/payments',
     method: 'post',
@@ -54,7 +55,7 @@ const ShowOrder = ({ currentuser, order }) => {
 
 ShowOrder.getInitialProps = async (context, client) => {
   const { orderId } = context.query;
-  console.log('orderId=', orderId);
+  //console.log('orderId=', orderId);
   const { data } = await client.get(`/api/orders/${orderId}`);
 
   return { order: data };

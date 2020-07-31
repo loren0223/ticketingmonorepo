@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: cd client && docker build -t agreeloren106001/ticketing-client .
+        run: cd client && docker build -t agreeloren106001/ticketing-client ./Dockerfile.prod
       - name: Login in DockerHub
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         env:
