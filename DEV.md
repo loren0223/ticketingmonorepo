@@ -13,7 +13,7 @@ Configuration:
 
 - Change the content of `template.spec.containers.image` property in infra/k8s/\*\*-depl.yaml files to be your DockerHub repository name.
 - Change the content of `build.artifacts.image` properties in skaffold.yaml file to be your DockerHub repository name.
-- Change the value of container env named `BASE_URL_ON_SERVER` in infra/k8s-prod/client-depl.yaml file to be your production domain name.
+- Change the value of `STRIPE_PUBLIC_KEY` in client/.env.development file to be your Stripe public key.
 - Connect to kubernetes,
   - Create jwt-secret object:
     ```
