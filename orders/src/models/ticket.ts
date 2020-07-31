@@ -49,6 +49,7 @@ const ticketSchema = new mongoose.Schema(
         delete ret._id;
       },
     },
+    timestamps: true,
   }
 );
 

@@ -45,6 +45,7 @@ const userSchema = new mongoose.Schema(
         delete ret.__v;
       },
     },
+    timestamps: true,
   }
 );
 // Define the Pre middleware for Save event

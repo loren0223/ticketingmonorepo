@@ -4,6 +4,7 @@ const OrderIndex = ({ orders }) => {
   const orderList = orders.map((order) => {
     return (
       <tr key={order.id}>
+        <td>{order.createdAt}</td>
         <td>{order.ticket.category}</td>
         <td>{order.ticket.title}</td>
         <td>{order.ticket.price}</td>
@@ -23,6 +24,7 @@ const OrderIndex = ({ orders }) => {
       <table className="table">
         <thead>
           <tr>
+            <th>Order Time</th>
             <th>Category</th>
             <th>Title</th>
             <th>Price</th>

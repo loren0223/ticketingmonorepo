@@ -26,7 +26,7 @@ const LandingPage = ({ currentuser, tickets }) => {
             <th>Category</th>
             <th>Title</th>
             <th>Price</th>
-            <th>Created Datetime</th>
+            <th>Sale Time</th>
             <th>Link</th>
           </tr>
         </thead>
