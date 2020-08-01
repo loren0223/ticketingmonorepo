@@ -19,7 +19,7 @@ Configuration:
     ```
     $ kubectl create secret generic jwt-secret --from-literal=JWT_KEY={YOUR_JWT_KEY}
     ```
-  - Create jwt-secret object:
+  - Create stripe-secret object:
     ```
     $ kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY={YOUR_STRIPE_SECRET_KEY}
     ```
