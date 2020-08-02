@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Ticketing is a mobile-ready, next.js powered e-commercial web app that based on microservices.
+Ticketing is an Online Auction Website that the backend developed based on microservices.
 
 - Implement microservices of authentication, orders, tickets, payments and order expiration management
 - Async communication using events between services
