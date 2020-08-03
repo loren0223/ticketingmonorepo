@@ -3,6 +3,7 @@ import Link from 'next/link';
 const OrderIndex = ({ orders }) => {
   const orderList = orders.map((order) => {
     const localDateString = new Date(order.createdAt).toLocaleString();
+    const isCompleted = order.status === 'completed' ? true : false;
 
     return (
       <tr key={order.id}>
@@ -12,12 +13,10 @@ const OrderIndex = ({ orders }) => {
         <td>{order.ticket.price}</td>
         <td>{order.status}</td>
         <td>
-          {order.status != 'completed' ? (
+          {!isCompleted && (
             <Link href="/orders/[orderId]" as={`/orders/${order.id}`}>
               <a>Pay</a>
             </Link>
-          ) : (
-            <p>-</p>
           )}
         </td>
       </tr>
