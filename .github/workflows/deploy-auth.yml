@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker image
-        run: cd auth && docker build -t agreeloren106001/ticketing-auth .
+        run: cd auth && docker build --build-arg DEPLOY_ENV=prod -t agreeloren106001/ticketing-auth .
       - name: Login in DockerHub
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         env:
