@@ -4,6 +4,7 @@ const OrderIndex = ({ orders }) => {
   const orderList = orders.map((order) => {
     const localDateString = new Date(order.createdAt).toLocaleString();
     const isCompleted = order.status === 'completed' ? true : false;
+    const isCancelled = order.status === 'cancelled' ? true : false;
 
     return (
       <tr key={order.id}>
@@ -13,7 +14,7 @@ const OrderIndex = ({ orders }) => {
         <td>{order.ticket.price}</td>
         <td>{order.status}</td>
         <td>
-          {!isCompleted && (
+          {!isCompleted && !isCancelled && (
             <Link href="/orders/[orderId]" as={`/orders/${order.id}`}>
               <a>Pay</a>
             </Link>
