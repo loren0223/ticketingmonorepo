@@ -58,6 +58,8 @@ build:
       context: client
       docker:
         dockerfile: Dockerfile
+        buildArgs:
+          DEPLOY_ENV: dev
       sync:
         manual:
           - src: "**/*.js"
