@@ -46,6 +46,7 @@ export default () => {
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
+      <h5>Testing id/password for signin: qazwsxedc@abcd.com/111111111 </h5>
     </form>
   );
 };

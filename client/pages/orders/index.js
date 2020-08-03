@@ -2,17 +2,23 @@ import Link from 'next/link';
 
 const OrderIndex = ({ orders }) => {
   const orderList = orders.map((order) => {
+    const localDateString = new Date(order.createdAt).toLocaleString();
+
     return (
       <tr key={order.id}>
-        <td>{order.createdAt}</td>
+        <td>{localDateString}</td>
         <td>{order.ticket.category}</td>
         <td>{order.ticket.title}</td>
         <td>{order.ticket.price}</td>
         <td>{order.status}</td>
         <td>
-          <Link href="/orders/[orderId]" as={`/orders/${order.id}`}>
-            <a>View</a>
-          </Link>
+          {order.status != 'completed' ? (
+            <Link href="/orders/[orderId]" as={`/orders/${order.id}`}>
+              <a>Pay</a>
+            </Link>
+          ) : (
+            <p>-</p>
+          )}
         </td>
       </tr>
     );

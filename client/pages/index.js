@@ -2,12 +2,14 @@ import Link from 'next/link';
 
 const LandingPage = ({ currentuser, tickets }) => {
   const ticketList = tickets.map((ticket) => {
+    const localDateString = new Date(ticket.createdAt).toLocaleString();
+
     return (
       <tr key={ticket.id}>
         <td>{ticket.category}</td>
         <td>{ticket.title}</td>
         <td>{ticket.price}</td>
-        <td>{ticket.createdAt}</td>
+        <td>{localDateString}</td>
         <td>
           <Link href="/tickets/[ticketId]" as={`/tickets/${ticket.id}`}>
             <a>View</a>
