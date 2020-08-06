@@ -10,8 +10,10 @@ const startApp = async () => {
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
   }
+
   console.log(`JWT_SECRET_KEY = ${process.env.JWT_SECRET_KEY}`);
   console.log(`MONGO_URI = ${process.env.MONGO_URI}`);
+  console.log(`COOKIE_MAX_AGE = ${process.env.COOKIE_MAX_AGE}`);
 
   try {
     await mongoose.connect(process.env.MONGO_URI, {

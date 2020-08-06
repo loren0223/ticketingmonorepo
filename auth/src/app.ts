@@ -19,6 +19,11 @@ app.use(
     name: 'myJWT',
     signed: false,
     secure: process.env.NODE_ENV !== 'test', // "true" means that only transfer cookie-session when using HTTPS
+    maxAge: parseInt(
+      process.env.COOKIE_MAX_AGE === undefined
+        ? '2592000000'
+        : process.env.COOKIE_MAX_AGE!
+    ),
   })
 ); // https://www.npmjs.com/package/cookie-session
 
