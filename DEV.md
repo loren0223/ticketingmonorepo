@@ -8,6 +8,7 @@ Prerequisites:
 - A DockerHub account
 - Install skaffold (https://skaffold.dev/docs/install/)
 - Install Docker for Mac/Windows and enable kubernetes
+- Install cert-manager (https://cert-manager.io/docs/installation/kubernetes/)
 
 Configuration:
 
@@ -32,13 +33,6 @@ Configuration:
   ```
   127.0.0.1  ticketing.dev
   ```
-
-Install the dependencies and devDependencies
-
-```sh
-$ cd auth [cd client] [cd common] [cd expiration] [cd orders] [cd payments] [cd tickets]
-$ npm install
-```
 
 Start the server
 
