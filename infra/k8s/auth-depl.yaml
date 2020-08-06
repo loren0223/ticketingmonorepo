@@ -17,8 +17,10 @@ spec:
           image: agreeloren106001/ticketing-auth
           # image: us.gcr.io/ticketing-dev-277902/auth
           env:
+            - name: COOKIE_MAX_AGE
+              value: "2592000000"
             - name: MONGO_URI
-              value: 'mongodb://auth-mongo-srv:27017/auth'
+              value: "mongodb://auth-mongo-srv:27017/auth"
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:
